@@ -1,13 +1,12 @@
 ============ Automatic Blog Generator (using OpenAI API) =================
 
 1. Settings file (with API keys and local repository folders): ".env"
-2. Blog generation initial prompt and model parameters: "blog.txt" 
-   (must me filled out)
+2. Blog generation initial prompt and model parameters: "blog.txt" (must me filled out)
 3. Program file: "blog.py" (imports "parser.py")
-4. To run: "python blog.py" 
-   (some dependencies like apenai, dotenv, git, etc. must be installed)
+4. To run: "python blog.py" (some dependencies like openai, dotenv, git, etc. must be installed)
 
-Description: Generates blog with a given title and corresponding image
+Description: Generates blog with a given title and corresponding image.
+Adds link to a newly generated blof to the main page.
 (some experimenting with GPT-prompt is reqired, YMMV)
 
 Blog location: http://sd12key.github.io
@@ -35,8 +34,9 @@ quality="standard",
 style="natural",
 n=1,
 --------------------------------------------------------------------------
-
 This corresponds to the following OpenAI API calls:
+({title} is replaced with blog title text).
+--------------------------------------------------------------------------
 
 ==GhatGPT==
 response = client.chat.completions.create(
@@ -48,7 +48,7 @@ response = client.chat.completions.create(
         },
         {
             "role": "user",
-            "content": "I'm a blogger needing your help in writing a small story.\nBlog title: Blog Title\nBlog contents: """
+            "content": "I'm a blogger needing your help in writing a small story.\nBlog title: Blog Title\nBlog contents: "
         }
     ],
     temperature=1.0,
