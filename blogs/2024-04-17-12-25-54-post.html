@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pertov-Galerkin Finite Element Method: What Is Weak Formulation?</title>
+</head>
+<body bgcolor="#E0FFFF"> <!-- light-light blue -->
+
+<center>
+    <img src="2024-04-17-12-25-54-image.jpg" alt="Blog Image" style="width:80%;">
+	<div style="width: 80%; margin: 0 auto;">	
+    <h1 style="color:#00008B">Pertov-Galerkin Finite Element Method: What Is Weak Formulation?</h1>
+	</div>
+</center>
+
+<div style="width: 80%; margin: 0 auto;">	
+
+<p>The Finite Element Method (FEM) is a powerful computational technique used in engineering and mathematical modeling to solve boundary value problems typically formulated as differential equations. Understanding the weak formulation is essential to appreciate how FEM develops its solutions.</p>
+<p></p>
+<p>Originally, differential equations describe many physical phenomena, from structural mechanics to heat transfer. However, these equations often require complex calculations for their solutions, especially when dealing with irregular shapes and boundary conditions. The weak formulation is a pivotal concept that helps in simplifying these calculations.</p>
+<p></p>
+<p>The weak formulation of a problem involves reformulating the original differential equation into an integral form. This approach doesn't require the solution to be differentiable everywhere, which is a significant relaxation of the problem's smoothness requirements. Instead, it must belong to a space of functions that are square integrable, known as Sobolev spaces. This is crucial because it broadens the scope of functions that can be considered as potential solutions, making the method more flexible and widely applicable.</p>
+<p></p>
+<p>The connection between weak formulations and the Finite Element Method lies in how FEM approximates the solution. In the weak formulation, the solution is approximated by a linear combination of basis functions, which are often polynomial in nature. These basis functions are defined locally on small subdomains called finite elements. The global solution is then assembled from these local solutions, respecting the boundary conditions and continuity between elements.</p>
+<p></p>
+<p>The Galerkin method, a specific type of weak formulation, is particularly influential in the development of FEM. In this approach, the same set of functions is used as both the test functions (functions against which the equation is tested) and the basis functions in which the solution is expanded. This choice simplifies the computation and ensures that the residual (the error in satisfying the original differential equation) is orthogonal to the space spanned by the basis functions, enhancing the accuracy and stability of the solution.</p>
+<p></p>
+<p>The innovation of FEM, therefore, lies in its ability to convert a complex differential problem into a system of algebraic equations that are easier to solve using computers. This transformation is facilitated by the weak formulation, which allows the differential equations to be handled in their integral forms, easing the requirements on the nature of the solutions and leveraging the power of modern computational techniques.</p>
+<p></p>
+<p>In summary, the weak formulation is a cornerstone in the development of the Finite Element Method. It not only simplifies the mathematical handling of differential equations but also enhances the flexibility and applicability of FEM, making it a fundamental tool in both theoretical and applied disciplines.</p>
+
+   
+</div>
+</body>
+</html>
