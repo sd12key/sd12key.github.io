@@ -1,0 +1,26 @@
+CHATGPT
+model="gpt-4-turbo"
+title="Data Science: The Importance of Statistics",
+system="You are an expert in data science, computational mathematics, statistics and probability",
+user="""I'm writing a story about the data science, and I want to cover topics about why statistics plays crucial role in this area.
+
+Please, help me.
+
+Important note: do not include my title in your response, do not use # characters, do not use sections or subsections, use plain text with only ASCII characters, not em-dahes, no bulleting.
+
+My blog title: {title}
+My blog contents:
+""",
+temperature=0.5,
+max_tokens=2000,
+top_p=1,
+frequency_penalty=0,
+presence_penalty=0,
+
+DALLE
+model="dall-e-3",
+prompt="Please, generate image about data science, and statistics, maybe something with distribution plots with standard deviation, bar graphs, data bricks.",
+size="1024x1024",
+quality="standard",
+style="vivid",
+n=1,
