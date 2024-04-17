@@ -3,14 +3,16 @@
 1. Settings file (with API keys and local repository folders): ".env"
 2. Blog generation initial prompt and model parameters: "blog.txt" 
    (must me filled out)
-3. Program files: "blog.py" and "parser.py"
+3. Program file: "blog.py" (imports "parser.py")
 4. To run: "python blog.py" 
    (some dependencies like apenai, dotenv, git, etc. must be installed)
 
-Description: Generates blog and image according to GPT-prompt and title
+Description: Generates blog with a given title and corresponding image
+(some experimenting with GPT-prompt is reqired, YMMV)
+
 Blog location: http://sd12key.github.io
 
-Example contents of a GPT prompt and parameters file "blog.txt":
+Example of a "blog.txt" file contents (GPT prompt and model parameters):
 --------------------------------------------------------------------------
 CHATGPT
 model="gpt-4-turbo"
@@ -27,10 +29,42 @@ presence_penalty=0,
 
 DALLE
 model="dall-e-3",
-prompt="Art showing female rhythmic gymnast in a competition",
+prompt="Art about {title}",
 size="1024x1024",
 quality="standard",
 style="natural",
 n=1,
 --------------------------------------------------------------------------
-this corresponds to the following OpenAI API calls:
+
+This corresponds to the following OpenAI API calls:
+
+==GhatGPT==
+response = client.chat.completions.create(
+    model="gpt-4-turbo",
+    messages=[
+        {
+            "role": "system",
+            "content": "You are an expert blog writer"
+        },
+        {
+            "role": "user",
+            "content": "I'm a blogger needing your help in writing a small story.\nBlog title: Blog Title\nBlog contents: """
+        }
+    ],
+    temperature=1.0,
+    max_tokens=100,
+    top_p=1,
+    frequency_penalty=0,
+    presence_penalty=0,
+)    
+
+==DALL-E==
+response = client.images.generate(
+	model="dall-e-3",
+	prompt="Art about Blog Title",
+	size="1024x1024",
+	quality="standard",
+	style="natural",
+	n=1,
+)
+
