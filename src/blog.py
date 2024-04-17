@@ -114,8 +114,8 @@ response = client.chat.completions.create(
 )    
 
 blog_text=response.choices[0].message.content
-#blog_text_utf8=blog_text.encode('utf-8')
-#blog_text=blog_text_utf8.decode('utf-8')
+blog_text_utf8=blog_text.encode('utf-8')
+blog_text=blog_text_utf8.decode('utf-8')
 ascii_blog_text = parser.convert_to_ascii(blog_text)
 blog_text = ascii_blog_text
 #print(blog_text)
