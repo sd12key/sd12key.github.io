@@ -14,7 +14,7 @@ Blog location: http://sd12key.github.io
 Example of a "blog.txt" file contents (GPT prompt and model parameters):
 --------------------------------------------------------------------------
 CHATGPT
-model="gpt-4-turbo"
+'model="gpt-4-turbo"
 title="Blog Title",
 system="You are an expert blog writer",
 user="""I'm a blogger needing your help in writing a small story.
@@ -32,39 +32,39 @@ prompt="Art about {title}",
 size="1024x1024",
 quality="standard",
 style="natural",
-n=1,
+n=1,'
 --------------------------------------------------------------------------
 This corresponds to the following OpenAI API calls:
 ({title} is replaced with blog title text).
 --------------------------------------------------------------------------
 
 ==GhatGPT==
-response = client.chat.completions.create(
-    model="gpt-4-turbo",
-    messages=[
-        {
-            "role": "system",
-            "content": "You are an expert blog writer"
-        },
-        {
-            "role": "user",
-            "content": "I'm a blogger needing your help in writing a small story.\nBlog title: Blog Title\nBlog contents: "
-        }
-    ],
-    temperature=1.0,
-    max_tokens=100,
-    top_p=1,
-    frequency_penalty=0,
-    presence_penalty=0,
-)    
+'response = client.chat.completions.create(
+            model="gpt-4-turbo",
+            messages=[
+              {
+                "role": "system",
+                "content": "You are an expert blog writer"
+              },
+              {
+                "role": "user",
+                "content": "I'm a blogger needing your help in writing a small story.\nBlog title: Blog Title\nBlog contents: "
+              }
+            ],
+            temperature=1.0,
+            max_tokens=100,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+)'
 
 ==DALL-E==
-response = client.images.generate(
-	model="dall-e-3",
-	prompt="Art about Blog Title",
-	size="1024x1024",
-	quality="standard",
-	style="natural",
-	n=1,
-)
+'response = client.images.generate(
+            model="dall-e-3",
+            prompt="Art about Blog Title",
+            size="1024x1024",
+            quality="standard",
+            style="natural",
+            n=1,
+)'
 
